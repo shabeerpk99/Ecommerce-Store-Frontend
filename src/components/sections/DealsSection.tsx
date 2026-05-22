@@ -44,8 +44,8 @@ export function DealsSection() {
                 </div>
                 <div className="px-4 py-3 text-center">
                   <div className="flex flex-col items-center gap-2">
-                  <p className="mt-2 text-base text-dark">{item.name}</p>
-                  <span className="inline-block rounded-full bg-badge-bg px-2 py-0.5 text-sm font-medium text-badge-text">
+                  <p className="mt-2 text-lg md:text-xl font-semibold text-dark">{item.name}</p>
+                  <span className="inline-block rounded-full bg-badge-bg px-3 py-1 text-sm md:text-base font-medium text-badge-text">
                     {item.discount}
                   </span>
                 </div>

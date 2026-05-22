@@ -1,11 +1,12 @@
 import sofaChairImg from '../assets/images/interior/1.png';
-import kitchenPotImg from '../assets/images/interior/3.png';
 import tableLampImg from '../assets/images/interior/6.png';
-import softChairImg from '../assets/images/interior/7.png';
-import kitchenDishesImg from '../assets/images/interior/9.png';
-import coffeeMakerImg from '../assets/images/tech/image 23.png';
-import blenderImg from '../assets/images/tech/image 29.png';
-import mixerImg from '../assets/images/tech/image 32.png';
+import coffeeMakerImg from '../assets/images/tech/coffee-maker.png';
+import blenderImg from '../assets/images/tech/blender.png';
+import airMattressImg from '../assets/images/tech/air-mattres.png';
+import dragonTreeImg from '../assets/images/tech/dragon-tree.png';
+import KitchenMixerImg from '../assets/images/tech/kitchen-mixer.png';
+import ElectronicKettleImg from '../assets/images/tech/electric-kettle.png';
+
 
 export const recommendedProducts = [
   { id: 1, title: 'T-shirts with multiple colors, for men', price: '$10.30', image: '/images/product-tshirt.png' },
@@ -32,14 +33,14 @@ export const electronicsCategories = [
 ];
 
 export const homeOutdoorCategories = [
-  { name: 'Coffee maker', price: 'From USD 10', image: coffeeMakerImg },
-  { name: 'Home appliance', price: 'From USD 19', image: mixerImg },
-  { name: 'Blenders', price: 'From USD 39', image: blenderImg },
-  { name: 'Kitchen mixer', price: 'From USD 100', image: tableLampImg },
-  { name: 'Smart watches', price: 'From USD 19', image: sofaChairImg },
-  { name: 'Kitchen dishes', price: 'From USD 19', image: kitchenDishesImg },
-  { name: 'Sofa & chair', price: 'From USD 19', image: sofaChairImg },
-  { name: 'Soft chairs', price: 'From USD 19', image: softChairImg },
+  { name: 'sofa chair', price: 'From USD 10', image: sofaChairImg },
+  { name: 'Table lamp', price: 'From USD 19', image: tableLampImg },
+  { name: 'Air mattress', price: 'From USD 39', image: airMattressImg },
+  { name: 'Dragon tree', price: 'From USD 100', image: dragonTreeImg },
+  { name: 'Electric kettle', price: 'From USD 19', image: ElectronicKettleImg },
+  { name: 'Kitchen mixer', price: 'From USD 19', image: KitchenMixerImg },
+  { name: 'Coffee maker', price: 'From USD 19', image: coffeeMakerImg },
+  { name: 'Blender', price: 'From USD 49', image: blenderImg },
 ];
 
 export const dealItems = [

@@ -18,8 +18,8 @@ function CategoryCard({ name, price, image }: CategoryItem) {
     <div className="flex flex-1 flex-col">
      <div className="flex h-[140px] items-center justify-between gap-2 px-3">
   <div className="space-y-1">
-    <p className="text-base font-semibold text-dark">{name}</p>
-    <p className="text-sm text-gray-500">{price}</p>
+    <p className="text-lg md:text-xl font-semibold text-dark">{name}</p>
+    <p className="text-base md:text-lg text-gray-500">{price}</p>
   </div>
   <img src={image} alt={name} className="max-h-[120px] max-w-[110px] object-contain" />
 </div>
