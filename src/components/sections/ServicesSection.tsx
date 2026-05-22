@@ -13,21 +13,28 @@ export function ServicesSection() {
           {services.map((service) => (
             <article
               key={service.title}
-              className="overflow-hidden rounded-md border border-[#E0E0E0] bg-white"
+              className="overflow-hidden rounded-xl border border-[#E0E0E0] bg-white shadow-sm"
             >
-              <div className="relative h-[120px] overflow-hidden bg-[#D3D3D3]">
+              {/* Image Header Container */}
+              <div className="relative h-[140px] w-full overflow-hidden bg-[#F4F4F4]">
                 <img
                   src={service.image}
-                  alt=""
-                  className="h-full w-full object-cover opacity-50"
+                  alt={service.title}
+                  className="h-full w-full object-cover" 
                 />
-                <div className="absolute bottom-[-14px] left-5 flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-[#D1E7FF]">
-                  <ServiceIcon type={service.icon} className="text-primary" />
+                
+                {/* Floating Search Action Button on the Bottom-Right */}
+                <div className="absolute bottom-3 right-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#EAF2FF] shadow-md cursor-pointer hover:bg-[#D1E7FF] transition-colors">
+                  <ServiceIcon type={service.icon} className="h-5 w-5 text-[#1C1B1F]" />
                 </div>
               </div>
-              <p className="whitespace-pre-line px-5 pb-5 pt-6 text-base font-medium leading-[22px] text-dark">
-                {service.title}
-              </p>
+
+              {/* Title Text Content Area */}
+              <div className="px-4 pb-5 pt-4">
+                <p className="text-base font-medium leading-snug text-[#222222]">
+                  {service.title}
+                </p>
+              </div>
             </article>
           ))}
         </div>
