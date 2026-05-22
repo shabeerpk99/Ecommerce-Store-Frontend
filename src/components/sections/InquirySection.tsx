@@ -20,7 +20,7 @@ export function InquirySection() {
                 <h2 className="text-[32px] font-semibold pt-10 pl-10">
                   An easy way to send requests to all suppliers
                 </h2>
-                <p className="mt-4 text-base lpt-10 pl-10 text-white/90">
+                <p className="mt-4 text-base pl-10 text-white/90">
                    Select your items, specify quantities, and get competitive quotes directly from verified suppliers.
                 </p>
               </div>

@@ -1,6 +1,6 @@
-import { ChevronUpIcon } from './icons';
 import { Logo } from './Logo';
 import { Container } from './Container';
+import { ChevronUpIcon } from './icons';
 
 const footerColumns = [
   {
@@ -77,14 +77,14 @@ export function Footer() {
 
       <div className="border-t border-gray-300 bg-gray-200">
         <Container className="flex h-[68px] items-center justify-between">
-          <p className="text-base tracking-tight text-gray-800">© 2023 Ecommerce.</p>
+          <p className="text-lg font-semibold tracking-tight text-gray-800">© 2023 Ecommerce.</p>
           <button
             type="button"
             className="flex items-center gap-2 text-base text-gray-800"
           >
             <img src="/images/flag-us.png" alt="US" className="h-[17px] w-6 rounded-sm object-cover" />
             English
-            <ChevronUpIcon className="text-gray-500" />
+            <ChevronUpIcon className="w-6 h-6 text-gray-500" />
           </button>
         </Container>
       </div>
