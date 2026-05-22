@@ -22,11 +22,11 @@ export const recommendedProducts = [
 ];
 
 export const electronicsCategories = [
-  { name: 'Electric kattle', price: 'From USD 240', image: '/images/cat-kettle.png' },
+  { name: 'Mobile Phones', price: 'From USD 240', image: '/images/cat-kettle.png' },
   { name: 'Smartphones', price: 'From USD 19', image: '/images/cat-smartphone.png' },
   { name: 'Laptops & PC', price: 'From USD 340', image: '/images/cat-laptop.png' },
   { name: 'Gaming set', price: 'From USD 35', image: '/images/cat-gaming.png' },
-  { name: 'Smart watches', price: 'From USD 90', image: '/images/product-bag.png' },
+  { name: 'E Kettle', price: 'From USD 90', image: '/images/product-bag.png' },
   { name: 'Headphones', price: 'From USD 10', image: '/images/product-headset.png' },
   { name: 'Cameras', price: 'From USD 89', image: '/images/cat-cameras.png' },
   { name: 'Smart watches', price: 'From USD 19', image: '/images/deal-smartwatch.png' },
