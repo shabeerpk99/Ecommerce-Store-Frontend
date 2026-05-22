@@ -48,7 +48,7 @@ export function Footer() {
 
           {footerColumns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-base font-medium text-dark">{col.title}</h3>
+              <h3 className="text-xl font-semibold text-dark">{col.title}</h3>
               <ul className="mt-2 space-y-1">
                 {col.links.map((link) => (
                   <li key={link}>
@@ -62,7 +62,7 @@ export function Footer() {
           ))}
 
           <div>
-            <h3 className="text-base font-medium text-dark">Get app</h3>
+            <h3 className="text-lg font-semibold text-dark">Get app</h3>
             <div className="mt-4 space-y-3">
               <div className="flex h-[42px] w-[124px] items-center justify-center rounded-md bg-dark text-xs text-white">
                 App Store
