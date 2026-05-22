@@ -3,9 +3,10 @@ import { Container } from './Container';
 import { navbarLinks } from '../data/homeData';
 
 const categoryOptions = ['Fashion', 'Electronics', 'Home supplies', 'Sports & Outdoor'];
-const languageOptions = ['English, USD', 'French, EUR', 'Spanish, USD', 'German, EUR'];
+const languageOptions = ['English, USD', 'Pakistan, PKR', 'French, EUR', 'Spanish, USD', 'German, EUR'];
 const shipOptions = [
   { label: 'Germany', flag: '/images/flag-de.png' },
+  { label: 'Pakistan', flag: '/images/flag-pk1.png' },
   { label: 'United States', flag: '/images/flag-us.png' },
   { label: 'China', flag: '/images/flag-cn.png' },
   { label: 'Australia', flag: '/images/flag-au.png' },
