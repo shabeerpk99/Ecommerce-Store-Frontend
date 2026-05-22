@@ -9,7 +9,8 @@ import { MainSection } from '../components/sections/MainSection';
 import { NewsletterSection } from '../components/sections/NewsletterSection';
 import { RecommendedSection } from '../components/sections/RecommendedSection';
 import { ServicesSection } from '../components/sections/ServicesSection';
-import homeSofaBg from '../assets/images/backgrounds/home-sofa.png';
+import homeoutdoor from '../assets/images/backgrounds/home-outdoor.png';
+import electronicshero from '../assets/images/backgrounds/electronics-hero.png';
 import {
   electronicsCategories,
   homeOutdoorCategories,
@@ -25,13 +26,13 @@ export function HomePage() {
         <DealsSection />
         <CategorySection
           bannerTitle="Home and outdoor"
-          bannerImage={homeSofaBg}
+          bannerImage={homeoutdoor}
           bannerBg="#FFE0B0"
           items={homeOutdoorCategories}
         />
         <CategorySection
           bannerTitle="Consumer electronics and gadgets"
-          bannerImage="/images/electronics-bg.png"
+          bannerImage={electronicshero}
           bannerBg="#666666"
           items={electronicsCategories}
         />

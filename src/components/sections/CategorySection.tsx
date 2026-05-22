@@ -47,8 +47,8 @@ export function CategorySection({
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover opacity-80"
               />
-              <div className="relative flex h-[257px] flex-col justify-end p-5">
-                <h3 className="text-xl font-semibold leading-[26px] tracking-tight text-dark">
+              <div className="relative flex h-[257px] flex-col justify-start p-5 pt-6">
+                <h3 className="text-2xl md:text-3xl font-semibold leading-[30px] tracking-tight text-dark">
                   {bannerTitle}
                 </h3>
                 <button
