@@ -13,10 +13,10 @@ export function DealsSection() {
     <section className="pt-[30px]">
       <Container>
         <div className="flex rounded-md border border-gray-300 bg-white">
-          <div className="w-[261px] shrink-0 border-r border-gray-200 p-5">
-            <h2 className="text-xl font-semibold tracking-tight text-dark">Deals and offers</h2>
-            <p className="mt-1 text-base text-gray-500">Hygiene equipments</p>
-            <div className="mt-4 flex gap-1">
+          <div className="w-[350px] shrink-0 border-r border-gray-200 p-5">
+            <h2 className="text-3xl font-semibold tracking-tight text-dark">Deals and offers</h2>
+            <p className="mt-1 text-2xl text-gray-500">Hygiene equipments</p>
+            <div className="mt-4 flex text-2xl gap-1">
               {countdown.map((item) => (
                 <div
                   key={item.label}
