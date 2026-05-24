@@ -1,3 +1,4 @@
+import bannerImg from '../../assets/images/backgrounds/banner.png';
 import { sidebarCategories } from '../../data/homeData';
 import { Container } from '../Container';
 
@@ -27,7 +28,7 @@ export function MainSection() {
 
           <div className="relative h-[360px] flex-1 overflow-hidden rounded-md bg-primary">
             <img
-              src="/images/banner.png"
+              src={bannerImg}
               alt="Electronic items banner"
               className="absolute inset-0 h-full w-full object-cover"
             />

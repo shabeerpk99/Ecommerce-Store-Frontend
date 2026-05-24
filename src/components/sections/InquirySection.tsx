@@ -1,6 +1,6 @@
 import { ChevronDownIcon } from '../icons';
 import { Container } from '../Container';
-import InquiryBg from '../../assets/images/backgrounds/Inquiry.png';
+import inquiryBg from '../../assets/images/backgrounds/inquiry-bg.png';
 
 export function InquirySection() {
   return (
@@ -9,7 +9,7 @@ export function InquirySection() {
         <div className="relative overflow-hidden rounded-md border border-gray-200">
           <div className="relative h-[500px] w-full">
             <img
-              src={InquiryBg}
+              src={inquiryBg}
               alt="Inquiry background"
               className="absolute inset-0 h-full w-full object-cover opacity-100"
             />

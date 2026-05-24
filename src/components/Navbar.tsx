@@ -1,15 +1,20 @@
 import { ChevronDownIcon, MenuIcon } from './icons';
 import { Container } from './Container';
 import { navbarLinks } from '../data/homeData';
+import flagDe from '../assets/images/flags/de.png';
+import flagPk from '../assets/images/flags/pk.png';
+import flagUs from '../assets/images/flags/us.png';
+import flagCn from '../assets/images/flags/cn.png';
+import flagAu from '../assets/images/flags/au.png';
 
 const categoryOptions = ['Fashion', 'Electronics', 'Home supplies', 'Sports & Outdoor'];
 const languageOptions = ['English, USD', 'Pakistan, PKR', 'French, EUR', 'Spanish, USD', 'German, EUR'];
 const shipOptions = [
-  { label: 'Germany', flag: '/images/flag-de.png' },
-  { label: 'Pakistan', flag: '/images/flag-pk1.png' },
-  { label: 'United States', flag: '/images/flag-us.png' },
-  { label: 'China', flag: '/images/flag-cn.png' },
-  { label: 'Australia', flag: '/images/flag-au.png' },
+  { label: 'Germany', flag: flagDe },
+  { label: 'Pakistan', flag: flagPk },
+  { label: 'United States', flag: flagUs },
+  { label: 'China', flag: flagCn },
+  { label: 'Australia', flag: flagAu },
 ];
 const helpOptions = ['Help Center', 'Order tracking', 'Returns', 'Contact Us'];
 
@@ -112,7 +117,7 @@ export function Navbar() {
               className="flex items-center gap-2 text-base font-medium text-dark"
             >
               Ship to
-              <img src="/images/flag-de.png" alt="Germany" className="h-5 w-7 rounded-sm object-cover" />
+              <img src={flagDe} alt="Germany" className="h-5 w-7 rounded-sm object-cover" />
               <ChevronDownIcon className="w-4 h-4 text-gray-500" />
             </button>
             <div className="invisible absolute right-0 top-full z-10 mt-2 hidden w-52 rounded-xl border border-gray-200 bg-white p-2 shadow-lg group-hover:visible group-hover:block">

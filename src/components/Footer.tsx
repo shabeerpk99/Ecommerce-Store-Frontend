@@ -1,6 +1,7 @@
 import { Logo } from './Logo';
 import { Container } from './Container';
 import { ChevronDownIcon } from './icons';
+import flagUs from '../assets/images/flags/us.png';
 
 const footerColumns = [
   {
@@ -146,7 +147,7 @@ export function Footer() {
             type="button"
             className="flex items-center gap-2 text-base text-gray-800"
           >
-            <img src="/images/flag-us.png" alt="US" className="h-[17px] w-6 rounded-sm object-cover" />
+            <img src={flagUs} alt="US" className="h-[17px] w-6 rounded-sm object-cover" />
             English
             <ChevronDownIcon className="w-4 h-4 text-gray-500" />
           </button>
