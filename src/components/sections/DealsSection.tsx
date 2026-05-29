@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { dealItems } from '../../data/homeData';
 import { Container } from '../Container';
 
@@ -31,26 +32,31 @@ export function DealsSection() {
 
           <div className="grid flex-1 grid-cols-5">
             {dealItems.map((item, index) => (
-              <div
-                key={item.name}
-                className={`flex flex-col ${index < dealItems.length - 1 ? 'border-r border-gray-200' : ''}`}
+              <Link
+                key={item.id + index}
+                to={`/product/${item.id}`}
+                className="block"
               >
-                <div className="flex h-[160px] items-center justify-center bg-white p-4">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="max-h-full max-w-full object-contain"
-                  />
+                <div
+                  className={`flex flex-col h-full hover:bg-gray-50 transition-colors cursor-pointer ${index < dealItems.length - 1 ? 'border-r border-gray-200' : ''}`}
+                >
+                  <div className="flex h-[160px] items-center justify-center bg-white p-4 group">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform"
+                    />
+                  </div>
+                  <div className="px-4 py-3 text-center flex-1 flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center gap-2">
+                      <p className="mt-2 text-lg md:text-xl font-semibold text-dark">{item.name}</p>
+                      <span className="inline-block rounded-full bg-badge-bg px-3 py-1 text-sm md:text-base font-medium text-badge-text">
+                        {item.discount}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="px-4 py-3 text-center">
-                  <div className="flex flex-col items-center gap-2">
-                  <p className="mt-2 text-lg md:text-xl font-semibold text-dark">{item.name}</p>
-                  <span className="inline-block rounded-full bg-badge-bg px-3 py-1 text-sm md:text-base font-medium text-badge-text">
-                    {item.discount}
-                  </span>
-                </div>
-              </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -3,9 +3,10 @@ import bagImg from '../assets/images/products/bag.png';
 import walletImg from '../assets/images/products/wallet.png';
 import watchImg from '../assets/images/products/watch.png';
 import headsetImg from '../assets/images/products/headset.png';
-import cameraImg from '../assets/images/products/camera.png';
 import coatImg from '../assets/images/products/coat.png';
 import shortsImg from '../assets/images/products/shorts.png';
+import dealSmartwatchImg from '../assets/images/deals/smartwatch.png';
+import dealCanonImg from '../assets/images/deals/canon.png';
 
 export interface Product {
   id: string;
@@ -84,7 +85,7 @@ export const productsData: Product[] = [
     title: 'Smart Watch Pro',
     price: 149.99,
     originalPrice: 299.99,
-    image: watchImg,
+    image: dealSmartwatchImg,
     rating: 4.6,
     reviews: 512,
     brand: 'Samsung',
@@ -114,7 +115,7 @@ export const productsData: Product[] = [
     title: 'Digital Camera',
     price: 299.99,
     originalPrice: 599.99,
-    image: cameraImg,
+    image: dealCanonImg,
     rating: 4.9,
     reviews: 678,
     brand: 'Lenovo',
