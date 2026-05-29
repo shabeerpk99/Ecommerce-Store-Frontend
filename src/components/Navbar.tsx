@@ -1,6 +1,7 @@
-import { ChevronDownIcon, MenuIcon } from './icons';
+import { CartIcon, ChevronDownIcon, MenuIcon } from './icons';
 import { Container } from './Container';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import { navbarLinks, sidebarCategories } from '../data/homeData';
 import flagDe from '../assets/images/flags/de.png';
 import flagPk from '../assets/images/flags/pk.png';
@@ -21,6 +22,9 @@ const helpOptions = ['Help Center', 'Order tracking', 'Returns', 'Contact Us'];
 
 export function Navbar() {
   const navigate = useNavigate();
+  const { cart } = useCart();
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <nav className="bg-white">
       <Container className="flex h-14 items-center justify-between">
@@ -136,6 +140,20 @@ export function Navbar() {
               ))}
             </div>
           </div>
+
+          <button
+            type="button"
+            onClick={() => navigate('/cart')}
+            className="relative inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            <CartIcon className="w-4 h-4" />
+            Cart
+            {cartCount > 0 && (
+              <span className="absolute -right-2 -top-2 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-600 px-1.5 text-[10px] font-semibold text-white">
+                {cartCount}
+              </span>
+            )}
+          </button>
         </div>
       </Container>
     </nav>

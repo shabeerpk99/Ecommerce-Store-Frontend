@@ -9,6 +9,7 @@ import {
 } from './icons';
 import { Container } from './Container';
 import { sidebarCategories } from '../data/homeData';
+import { useCart } from '../context/CartContext';
 
 const categoryOptions = sidebarCategories;
 const actions = [
@@ -20,6 +21,9 @@ const actions = [
 
 export function Header() {
   const navigate = useNavigate();
+  const { cart } = useCart();
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <header className="bg-white border-b border-gray-300">
       <Container className="flex h-[86px] items-center gap-8">
@@ -61,16 +65,25 @@ export function Header() {
         </div>
 
         <div className="flex shrink-0 gap-7">
-          {actions.map(({ label, Icon }) => (
-            <button
-              key={label}
-              type="button"
-              className="flex flex-col items-center gap-1 text-[11px] font-medium text-gray-600 hover:text-gray-900"
-            >
-              <Icon className="w-7 h-7 text-gray-600" />
-              {label}
-            </button>
-          ))}
+          {actions.map(({ label, Icon }) => {
+            const isCart = label === 'My cart';
+            return (
+              <button
+                key={label}
+                type="button"
+                className="relative flex flex-col items-center gap-1 text-[11px] font-medium text-gray-600 hover:text-gray-900"
+                onClick={() => isCart && navigate('/cart')}
+              >
+                <Icon className="w-7 h-7 text-gray-600" />
+                {isCart && cartCount > 0 && (
+                  <span className="absolute -top-1 right-0 inline-flex h-5 min-w-[20px] items-center justify-center rounded-full bg-red-600 px-1.5 text-[10px] font-semibold text-white">
+                    {cartCount}
+                  </span>
+                )}
+                {label}
+              </button>
+            );
+          })}
         </div>
       </Container>
     </header>

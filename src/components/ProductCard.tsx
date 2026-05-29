@@ -19,6 +19,7 @@ export function ProductCard({ product, view = 'grid' }: ProductCardProps) {
       quantity: 1,
       image: product.image,
     });
+    alert('Added to cart!');
   };
 
   const renderStars = (rating: number) => {
@@ -66,8 +67,8 @@ export function ProductCard({ product, view = 'grid' }: ProductCardProps) {
             </Link>
 
             <div className="flex items-center gap-2">
-              <button onClick={handleAddToCart} className="px-3 py-1 bg-blue-600 text-white rounded">Add to cart</button>
-              <button className="text-red-500">♥</button>
+              <button type="button" onClick={handleAddToCart} className="px-3 py-1 bg-blue-600 text-white rounded">Add to cart</button>
+              <button type="button" className="text-red-500">♥</button>
             </div>
           </div>
         </div>
@@ -90,7 +91,8 @@ export function ProductCard({ product, view = 'grid' }: ProductCardProps) {
           </div>
         )}
         <button
-          onClick={() => handleAddToCart()}
+          type="button"
+          onClick={handleAddToCart}
           className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 text-white py-2 transition-all flex items-center justify-center gap-2"
         >
           🛒 Add to Cart
