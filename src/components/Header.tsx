@@ -1,4 +1,5 @@
 import { Logo } from './Logo';
+import { useNavigate } from 'react-router-dom';
 import {
   CartIcon,
   ChevronDownIcon,
@@ -7,8 +8,9 @@ import {
   ProfileIcon,
 } from './icons';
 import { Container } from './Container';
+import { sidebarCategories } from '../data/homeData';
 
-const categoryOptions = ['Fashion', 'Electronics', 'Home supplies', 'Sports & Outdoor'];
+const categoryOptions = sidebarCategories;
 const actions = [
   { label: 'Profile', Icon: ProfileIcon },
   { label: 'Message', Icon: MessageIcon },
@@ -17,6 +19,7 @@ const actions = [
 ];
 
 export function Header() {
+  const navigate = useNavigate();
   return (
     <header className="bg-white border-b border-gray-300">
       <Container className="flex h-[86px] items-center gap-8">
@@ -41,6 +44,7 @@ export function Header() {
                 <button
                   key={option}
                   type="button"
+                  onClick={() => navigate(`/category?cat=${encodeURIComponent(option)}`)}
                   className="w-full rounded-lg px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                 >
                   {option}

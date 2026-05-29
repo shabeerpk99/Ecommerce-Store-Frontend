@@ -1,6 +1,4 @@
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
-import { Navbar } from '../components/Navbar';
+// Header, Navbar and Footer are provided by the Layout wrapper
 import { CategorySection } from '../components/sections/CategorySection';
 import { CountriesSection } from '../components/sections/CountriesSection';
 import { DealsSection } from '../components/sections/DealsSection';
@@ -19,8 +17,6 @@ import {
 export function HomePage() {
   return (
     <div className="min-h-screen min-w-[1440px] bg-gray-100">
-      <Header />
-      <Navbar />
       <main>
         <MainSection />
         <DealsSection />
@@ -42,7 +38,7 @@ export function HomePage() {
         <CountriesSection />
         <NewsletterSection />
       </main>
-      <Footer />
+      
     </div>
   );
 }

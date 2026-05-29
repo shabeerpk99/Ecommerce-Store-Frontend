@@ -1,13 +1,14 @@
 import { ChevronDownIcon, MenuIcon } from './icons';
 import { Container } from './Container';
-import { navbarLinks } from '../data/homeData';
+import { useNavigate } from 'react-router-dom';
+import { navbarLinks, sidebarCategories } from '../data/homeData';
 import flagDe from '../assets/images/flags/de.png';
 import flagPk from '../assets/images/flags/pk.png';
 import flagUs from '../assets/images/flags/us.png';
 import flagCn from '../assets/images/flags/cn.png';
 import flagAu from '../assets/images/flags/au.png';
 
-const categoryOptions = ['Fashion', 'Electronics', 'Home supplies', 'Sports & Outdoor'];
+const categoryOptions = sidebarCategories;
 const languageOptions = ['English, USD', 'Pakistan, PKR', 'French, EUR', 'Spanish, USD', 'German, EUR'];
 const shipOptions = [
   { label: 'Germany', flag: flagDe },
@@ -19,6 +20,7 @@ const shipOptions = [
 const helpOptions = ['Help Center', 'Order tracking', 'Returns', 'Contact Us'];
 
 export function Navbar() {
+  const navigate = useNavigate();
   return (
     <nav className="bg-white">
       <Container className="flex h-14 items-center justify-between">
@@ -42,6 +44,7 @@ export function Navbar() {
                       <button
                         key={option}
                         type="button"
+                        onClick={() => navigate(`/category?cat=${encodeURIComponent(option)}`)}
                         className="w-full rounded-lg px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                       >
                         {option}
