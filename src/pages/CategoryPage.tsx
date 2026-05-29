@@ -7,12 +7,14 @@ import { ProductCard } from '../components/ProductCard';
 import { FilterChips } from '../components/FilterChips';
 import { Pagination } from '../components/Pagination';
 import { productsData, filterProducts } from '../data/productsData';
+import { electronicsCategories } from '../data/homeData';
 
 export default function CategoryPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryParam = searchParams.get('cat') || '';
   const [filters, setFilters] = useState<FilterState>({
     brands: [],
+    manufacturers: [],
     features: [],
     priceRange: [0, 500],
     condition: [],
@@ -62,6 +64,7 @@ export default function CategoryPage() {
     let filtered = filterProducts(productsData, {
       category: categoryParam ? effectiveCategory : undefined,
       brands: filters.brands.length > 0 ? filters.brands : undefined,
+      manufacturers: filters.manufacturers.length > 0 ? filters.manufacturers : undefined,
       features: filters.features.length > 0 ? filters.features : undefined,
       priceRange: filters.priceRange,
       condition: filters.condition.length > 0 ? filters.condition : undefined,
@@ -128,6 +131,10 @@ export default function CategoryPage() {
       chips.push({ id: 'featured', label: 'Featured' });
     }
 
+    filters.manufacturers.forEach((manufacturer) => {
+      chips.push({ id: `manufacturer-${manufacturer}`, label: `Manufacturer: ${manufacturer}` });
+    });
+
     if (categoryParam) {
       chips.unshift({ id: `category-${categoryParam}`, label: `Category: ${categoryParam}` });
     }
@@ -160,6 +167,11 @@ export default function CategoryPage() {
         ...filters,
         condition: filters.condition.filter((c) => c !== value),
       });
+    } else if (type === 'manufacturer') {
+      setFilters({
+        ...filters,
+        manufacturers: filters.manufacturers.filter((m) => m !== value),
+      });
     } else if (type === 'rating') {
       setFilters({ ...filters, rating: 0 });
     } else if (type === 'verified') {
@@ -172,6 +184,7 @@ export default function CategoryPage() {
   const handleClearAllFilters = () => {
     setFilters({
       brands: [],
+      manufacturers: [],
       features: [],
       priceRange: [0, 500],
       condition: [],
@@ -238,6 +251,19 @@ export default function CategoryPage() {
 
           {/* Main Content Area */}
           <div className="flex-1">
+            <div className="mb-6 grid gap-4 lg:grid-cols-4">
+              {electronicsCategories.slice(0, 4).map((category) => (
+                <div key={category.name} className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+                  <div className="flex items-center gap-4 p-4">
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-gray-900">{category.name}</p>
+                      <p className="text-xs text-gray-500 mt-1">{category.price}</p>
+                    </div>
+                    <img src={category.image} alt={category.name} className="h-20 w-20 object-contain" />
+                  </div>
+                </div>
+              ))}
+            </div>
             {/* Active Filters Chips */}
             <FilterChips
               chips={filterChips}

@@ -43,18 +43,18 @@ export const recommendedProducts = [
   { id: 4, title: 'Smartwatch\nsilver color modern', price: '$10.30', image: productWatchImg },
   { id: 5, title: 'Headset for gaming\nwith mic', price: '$8.99', image: productHeadsetImg },
   { id: 6, title: 'Canon camera \nblack, 100x zoom', price: '$9.99', image: productCameraImg },
-  { id: 7, title: 'Leather wallet', price: '$99.00', image: productWatchImg },
+  { id: 7, title: 'Leather wallet', price: '$99.00', image: productWalletImg },
   { id: 8, title: 'Jeans bag for travel\nfor men', price: '$34.00', image: productBagImg },
   { id: 9, title: 'Brown winter coat\nmedium size', price: '$12.50', image: productCoatImg },
   { id: 10, title: 'Jeans shorts for men\nblue color', price: '$10.30', image: productShortsImg },
 ];
 
 export const electronicsCategories = [
-  { name: 'Mobile Phones', price: 'From USD 240', image: categoryKettleImg },
+  { name: 'Mobile Phones', price: 'From USD 240', image: categorySmartphoneImg },
   { name: 'Smartphones', price: 'From USD 19', image: categorySmartphoneImg },
   { name: 'Laptops & PC', price: 'From USD 340', image: categoryLaptopImg },
   { name: 'Gaming set', price: 'From USD 35', image: categoryGamingImg },
-  { name: 'E Kettle', price: 'From USD 90', image: productBagImg },
+  { name: 'E Kettle', price: 'From USD 90', image: categoryKettleImg },
   { name: 'Headphones', price: 'From USD 10', image: productHeadsetImg },
   { name: 'Cameras', price: 'From USD 89', image: categoryCamerasImg },
   { name: 'Smart watches', price: 'From USD 19', image: dealSmartwatchImg },

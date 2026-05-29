@@ -230,12 +230,17 @@ export function filterProducts(
     priceRange?: [number, number];
     condition?: string[];
     rating?: number;
+    manufacturers?: string[];
     verified?: boolean;
     featured?: boolean;
   }
 ): Product[] {
   return products.filter((product) => {
     if (filters.category && product.category !== filters.category) {
+      return false;
+    }
+
+    if (filters.manufacturers && filters.manufacturers.length > 0 && !filters.manufacturers.includes(product.brand)) {
       return false;
     }
 

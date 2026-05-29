@@ -75,9 +75,24 @@ export default function ProductDetailPage() {
   return (
     <div className="bg-gray-50 py-8">
       <Container>
-        <div className="grid gap-8">
-          <div className="grid grid-cols-[1.6fr_0.9fr] gap-8">
-            <div className="bg-white rounded-3xl p-8 shadow-sm">
+        <div className="space-y-8">
+          <div className="rounded-3xl bg-white p-5 shadow-sm">
+            <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
+              <Link to="/category" className="hover:text-gray-900">Shop</Link>
+              <span>/</span>
+              <Link
+                to={product.category ? `/category?category=${encodeURIComponent(product.category)}` : '/category'}
+                className="hover:text-gray-900"
+              >
+                {product.category || 'Products'}
+              </Link>
+              <span>/</span>
+              <span className="font-semibold text-gray-900">{product.title}</span>
+            </div>
+          </div>
+          <div className="grid gap-8">
+            <div className="grid grid-cols-[1.6fr_0.9fr] gap-8">
+              <div className="bg-white rounded-3xl p-8 shadow-sm">
               <div className="grid grid-cols-[1.2fr_0.8fr] gap-8">
                 <div className="space-y-6">
                   <img
@@ -153,7 +168,6 @@ export default function ProductDetailPage() {
                   </div>
                 </div>
               </div>
-            </div>
 
             <aside className="space-y-6">
               <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -272,6 +286,8 @@ export default function ProductDetailPage() {
               </div>
             )}
           </div>
+        </div>
+      </div>
         </div>
       </Container>
     </div>

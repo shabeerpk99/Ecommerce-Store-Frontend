@@ -7,6 +7,7 @@ interface CategoryFilterProps {
 
 export interface FilterState {
   brands: string[];
+  manufacturers: string[];
   features: string[];
   priceRange: [number, number];
   condition: string[];
@@ -18,6 +19,7 @@ export interface FilterState {
 export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
   const [filters, setFilters] = useState<FilterState>({
     brands: [],
+    manufacturers: [],
     features: [],
     priceRange: [0, 500],
     condition: [],
@@ -28,11 +30,11 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
 
   const [expandedSections, setExpandedSections] = useState({
     brands: true,
+    manufacturers: true,
     features: true,
     price: true,
     condition: true,
     rating: true,
-    manufacturer: true,
   });
 
   const toggleSection = (section: keyof typeof expandedSections) => {
@@ -64,6 +66,15 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
     const [min, max] = filters.priceRange;
     const newRange: [number, number] = type === 'min' ? [value, max] : [min, value];
     const newFilters = { ...filters, priceRange: newRange };
+    setFilters(newFilters);
+    onFilterChange(newFilters);
+  };
+
+  const handleManufacturerChange = (manufacturer: string) => {
+    const newManufacturers = filters.manufacturers.includes(manufacturer)
+      ? filters.manufacturers.filter((m) => m !== manufacturer)
+      : [...filters.manufacturers, manufacturer];
+    const newFilters = { ...filters, manufacturers: newManufacturers };
     setFilters(newFilters);
     onFilterChange(newFilters);
   };
@@ -175,6 +186,34 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
         )}
       </div>
 
+      {/* Manufacturer Filter */}
+      <div className="border-t pt-4">
+        <button
+          onClick={() => toggleSection('manufacturers')}
+          className="flex items-center justify-between w-full font-semibold text-gray-900 hover:text-blue-600"
+        >
+          <span>Manufacturer</span>
+          <span className={`transform transition ${expandedSections.manufacturers ? 'rotate-180' : ''}`}>
+            ▼
+          </span>
+        </button>
+        {expandedSections.manufacturers && (
+          <div className="mt-3 space-y-2">
+            {BRANDS.map((manufacturer) => (
+              <label key={manufacturer} className="flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={filters.manufacturers.includes(manufacturer)}
+                  onChange={() => handleManufacturerChange(manufacturer)}
+                  className="w-4 h-4 rounded border-gray-300 text-blue-600"
+                />
+                <span className="ml-2 text-sm text-gray-700">{manufacturer}</span>
+              </label>
+            ))}
+          </div>
+        )}
+      </div>
+
       {/* Condition Filter */}
       <div className="border-t pt-4">
         <button
@@ -238,25 +277,6 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
         )}
       </div>
 
-      {/* Manufacturer Filter */}
-      <div className="border-t pt-4">
-        <button
-          onClick={() => toggleSection('manufacturer')}
-          className="flex items-center justify-between w-full font-semibold text-gray-900 hover:text-blue-600"
-        >
-          <span>Manufacturer</span>
-          <span className={`transform transition ${expandedSections.manufacturer ? 'rotate-180' : ''}`}>
-            ▼
-          </span>
-        </button>
-        {expandedSections.manufacturer && (
-          <select className="w-full mt-3 px-3 py-2 border border-gray-300 rounded text-sm">
-            <option>All Manufacturers</option>
-            <option>Direct Manufacturer</option>
-            <option>Official Distributor</option>
-          </select>
-        )}
-      </div>
     </div>
   );
 }

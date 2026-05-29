@@ -63,7 +63,18 @@ export default function CartPage() {
   return (
     <div className="bg-gray-50 py-8">
       <Container>
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">My cart ({cart.length})</h1>
+        <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-sm text-gray-500 mb-2">Shopping cart</p>
+            <h1 className="text-3xl font-bold text-gray-900">My cart ({cart.length})</h1>
+          </div>
+          <Link
+            to="/category"
+            className="inline-flex items-center rounded-3xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100"
+          >
+            ← Continue shopping
+          </Link>
+        </div>
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-2 space-y-4">
             {cart.map((item) => (

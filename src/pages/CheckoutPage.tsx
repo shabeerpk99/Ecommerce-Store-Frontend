@@ -48,7 +48,19 @@ export default function CheckoutPage() {
   return (
     <div className="bg-gray-50 py-8">
       <Container>
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="text-sm text-gray-500 mb-1">Secure checkout</p>
+            <h1 className="text-3xl font-bold text-gray-900">Checkout</h1>
+          </div>
+          <button
+            type="button"
+            onClick={() => navigate('/cart')}
+            className="rounded-3xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-100"
+          >
+            ← Back to cart
+          </button>
+        </div>
 
         <div className="grid grid-cols-3 gap-8">
           <form onSubmit={handleSubmit} className="col-span-2 bg-white rounded-3xl p-8 shadow-sm">
