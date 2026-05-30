@@ -1,5 +1,5 @@
 import type { Product } from '../data/productsData';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 import { Link } from 'react-router-dom';
 
 interface ProductCardProps {

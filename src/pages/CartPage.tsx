@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Container } from '../components/Container';
-import { useCart, type CartItem } from '../context/CartContext';
+import { useCart } from '../context/useCart';
+import type { CartItem } from '../context/cartTypes';
 import { Link } from 'react-router-dom';
 import { productsData } from '../data/productsData';
 
@@ -96,7 +97,13 @@ export default function CartPage() {
                     >
                       −
                     </button>
-                    <span className="px-2 text-sm font-semibold">{item.quantity}</span>
+                    <input
+                      type="text"
+                      name="quantity"
+                      value={item.quantity}
+                      readOnly
+                      className="w-10 text-center bg-transparent text-sm font-semibold"
+                    />
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="px-3 py-1 text-gray-600"
@@ -154,6 +161,7 @@ export default function CartPage() {
               <div className="flex gap-3">
                 <input
                   type="text"
+                  name="couponCode"
                   value={couponCode}
                   onChange={(e) => setCouponCode(e.target.value)}
                   placeholder="Add coupon"

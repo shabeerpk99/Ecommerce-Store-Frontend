@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { recommendedProducts } from '../../data/homeData';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../context/useCart';
 import { Container } from '../Container';
 
 export function RecommendedSection() {

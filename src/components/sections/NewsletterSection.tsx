@@ -20,6 +20,7 @@ export function NewsletterSection() {
               <EmailIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
               <input
                 type="email"
+                name="newsletterEmail"
                 placeholder="Email"
                 className="h-10 w-full rounded-md border border-gray-300 bg-white pl-10 pr-3 text-base text-gray-500 outline-none"
               />

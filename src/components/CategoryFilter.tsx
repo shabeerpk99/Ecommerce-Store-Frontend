@@ -114,6 +114,8 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
               <label key={brand} className="flex items-center cursor-pointer">
                 <input
                   type="checkbox"
+                  name="brand"
+                  value={brand}
                   checked={filters.brands.includes(brand)}
                   onChange={() => handleBrandChange(brand)}
                   className="w-4 h-4 rounded border-gray-300 text-blue-600"
@@ -142,6 +144,8 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
               <label key={feature} className="flex items-center cursor-pointer">
                 <input
                   type="checkbox"
+                  name="feature"
+                  value={feature}
                   checked={filters.features.includes(feature)}
                   onChange={() => handleFeatureChange(feature)}
                   className="w-4 h-4 rounded border-gray-300 text-blue-600"
@@ -169,6 +173,7 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
             <div className="flex gap-2">
               <input
                 type="number"
+                name="priceMin"
                 value={filters.priceRange[0]}
                 onChange={(e) => handlePriceChange('min', Number(e.target.value))}
                 placeholder="Min"
@@ -176,6 +181,7 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
               />
               <input
                 type="number"
+                name="priceMax"
                 value={filters.priceRange[1]}
                 onChange={(e) => handlePriceChange('max', Number(e.target.value))}
                 placeholder="Max"
@@ -203,6 +209,8 @@ export function CategoryFilter({ onFilterChange }: CategoryFilterProps) {
               <label key={manufacturer} className="flex items-center cursor-pointer">
                 <input
                   type="checkbox"
+                  name="manufacturer"
+                  value={manufacturer}
                   checked={filters.manufacturers.includes(manufacturer)}
                   onChange={() => handleManufacturerChange(manufacturer)}
                   className="w-4 h-4 rounded border-gray-300 text-blue-600"

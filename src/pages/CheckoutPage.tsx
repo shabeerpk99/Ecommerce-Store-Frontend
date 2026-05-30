@@ -1,6 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Container } from '../components/Container';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 import { useNavigate } from 'react-router-dom';
 
 export default function CheckoutPage() {

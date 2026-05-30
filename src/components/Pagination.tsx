@@ -57,6 +57,7 @@ export function Pagination({
           <div className="flex items-center gap-2">
             <span className="text-sm text-gray-600">Show:</span>
             <select
+              name="itemsPerPage"
               value={itemsPerPage}
               onChange={(e) => onItemsPerPageChange(Number(e.target.value))}
               className="px-3 py-1 border border-gray-300 rounded text-sm"

@@ -28,6 +28,14 @@ export default function CategoryPage() {
     Smartphones: 'Electronics',
     'Modern tech': 'Electronics',
     Electronics: 'Electronics',
+    'Clothes and wear': 'Clothing',
+    'Computer and tech': 'Electronics',
+    'Home interiors': 'Accessories',
+    'Tools, equipments': 'Accessories',
+    'Sports and outdoor': 'Accessories',
+    'Animal and pets': 'Accessories',
+    'Machinery tools': 'Electronics',
+    Automobiles: 'Electronics',
   };
 
   const effectiveCategory = categoryMap[categoryParam] || categoryParam;
@@ -42,6 +50,7 @@ export default function CategoryPage() {
       params.set('cat', category);
     }
     setSearchParams(params);
+    setCurrentPage(1);
   };
 
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
@@ -51,11 +60,8 @@ export default function CategoryPage() {
 
   useEffect(() => {
     if (categoryParam) {
-      setCurrentPage(1);
-      setTimeout(() => {
-        const el = document.getElementById('products-grid');
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 200);
+      const el = document.getElementById('products-grid');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }, [categoryParam]);
 
@@ -89,7 +95,7 @@ export default function CategoryPage() {
     }
 
     return filtered;
-  }, [filters, sortBy, categoryParam]);
+  }, [filters, sortBy, effectiveCategory, categoryParam]);
 
   // Pagination
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
@@ -276,8 +282,9 @@ export default function CategoryPage() {
               <div className="flex items-center gap-4">
                 {/* Sort Dropdown */}
                 <select
+                  name="sortBy"
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as any)}
+                  onChange={(e) => setSortBy(e.target.value as 'relevant' | 'newest' | 'priceLow' | 'priceHigh')}
                   className="px-3 py-2 border border-gray-300 rounded text-sm"
                 >
                   <option value="relevant">Sort by: Relevant</option>
@@ -316,6 +323,7 @@ export default function CategoryPage() {
                 <label className="flex items-center gap-2 cursor-pointer text-sm">
                   <input
                     type="checkbox"
+                    name="verified"
                     checked={filters.verified}
                     onChange={(e) => setFilters({ ...filters, verified: e.target.checked })}
                     className="w-4 h-4 rounded"
@@ -326,6 +334,7 @@ export default function CategoryPage() {
                 <label className="flex items-center gap-2 cursor-pointer text-sm">
                   <input
                     type="checkbox"
+                    name="featured"
                     checked={filters.featured}
                     onChange={(e) => setFilters({ ...filters, featured: e.target.checked })}
                     className="w-4 h-4 rounded"

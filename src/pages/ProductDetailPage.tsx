@@ -1,7 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Container } from '../components/Container';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 import { ProductCard } from '../components/ProductCard';
 import { productsData } from '../data/productsData';
 
@@ -51,15 +51,9 @@ export default function ProductDetailPage() {
       { label: '700+ pcs', price: 78.0 },
     ];
 
-  const relatedProducts = useMemo(
-    () =>
-      productsData
-        .filter(
-          (item) => item.id !== product.id && item.category === product.category
-        )
-        .slice(0, 4),
-    [product.category, product.id]
-  );
+  const relatedProducts = productsData
+    .filter((item) => item.id !== product.id && item.category === product.category)
+    .slice(0, 3);
 
   const handleAddToCart = () => {
     addToCart({
@@ -271,15 +265,15 @@ export default function ProductDetailPage() {
             </div>
 
             {relatedProducts.length > 0 && (
-              <div className="rounded-3xl bg-white p-6 shadow-sm">
+              <div className="rounded-3xl bg-white p-6 shadow-sm mt-6">
                 <div className="flex items-center justify-between mb-5">
                   <div>
                     <p className="text-sm text-gray-500">You may like</p>
                     <h2 className="text-2xl font-semibold text-gray-900">Related products</h2>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 gap-4">
-                  {relatedProducts.map((item) => (
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  {relatedProducts.slice(0, 3).map((item) => (
                     <ProductCard key={item.id} product={item} />
                   ))}
                 </div>

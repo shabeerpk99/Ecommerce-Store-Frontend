@@ -9,7 +9,7 @@ import {
 } from './icons';
 import { Container } from './Container';
 import { sidebarCategories } from '../data/homeData';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 
 const categoryOptions = sidebarCategories;
 const actions = [
@@ -32,6 +32,7 @@ export function Header() {
         <div className="relative flex h-[56px] flex-1 max-w-[720px] overflow-visible rounded-full border border-[#D8E9FF] bg-white transition duration-200 focus-within:border-[#0D6EFD] focus-within:ring-1 focus-within:ring-[#0D6EFD]">
           <input
             type="text"
+            name="search"
             placeholder="Search"
             className="h-full flex-1 border-0 bg-transparent px-5 text-base text-gray-600 outline-none placeholder:text-gray-400 focus:outline-none"
           />

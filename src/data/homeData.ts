@@ -41,40 +41,40 @@ export const recommendedProducts = [
   { id: 'prod-004', title: 'Smartwatch\nsilver color modern', price: '$10.30', image: dealSmartwatchImg },
   { id: 'prod-005', title: 'Headset for gaming\nwith mic', price: '$8.99', image: productHeadsetImg },
   { id: 'prod-006', title: 'Canon camera \nblack, 100x zoom', price: '$9.99', image: dealCanonImg },
-  { id: 'prod-007', title: 'Leather wallet', price: '$99.00', image: productWalletImg },
-  { id: 'prod-008', title: 'Jeans bag for travel\nfor men', price: '$34.00', image: productBagImg },
-  { id: 'prod-001', title: 'Brown winter coat\nmedium size', price: '$12.50', image: productCoatImg },
-  { id: 'prod-003', title: 'Jeans shorts for men\nblue color', price: '$10.30', image: productShortsImg },
+  { id: 'prod-011', title: 'Leather wallet', price: '$99.00', image: productWalletImg },
+  { id: 'prod-009', title: 'Jeans bag for travel\nfor men', price: '$34.00', image: productBagImg },
+  { id: 'prod-007', title: 'Brown winter coat\nmedium size', price: '$12.50', image: productCoatImg },
+  { id: 'prod-008', title: 'Jeans shorts for men\nblue color', price: '$10.30', image: productShortsImg },
 ];
 
 export const electronicsCategories = [
-  { id: 'prod-004', name: 'Mobile Phones', price: 'From USD 240', image: categorySmartphoneImg },
-  { id: 'prod-004', name: 'Smartphones', price: 'From USD 19', image: categorySmartphoneImg },
-  { id: 'prod-001', name: 'Laptops & PC', price: 'From USD 340', image: categoryLaptopImg },
-  { id: 'prod-001', name: 'Gaming set', price: 'From USD 35', image: categoryGamingImg },
-  { id: 'prod-001', name: 'E Kettle', price: 'From USD 90', image: categoryKettleImg },
+  { id: 'prod-024', name: 'Mobile Phones', price: 'From USD 240', image: categorySmartphoneImg },
+  { id: 'prod-025', name: 'Smartphones', price: 'From USD 19', image: categorySmartphoneImg },
+  { id: 'prod-013', name: 'Laptops & PC', price: 'From USD 340', image: categoryLaptopImg },
+  { id: 'prod-026', name: 'Gaming set', price: 'From USD 35', image: categoryGamingImg },
+  { id: 'prod-027', name: 'E Kettle', price: 'From USD 90', image: categoryKettleImg },
   { id: 'prod-005', name: 'Headphones', price: 'From USD 10', image: productHeadsetImg },
-  { id: 'prod-006', name: 'Cameras', price: 'From USD 89', image: categoryCamerasImg },
-  { id: 'prod-004', name: 'Smart watches', price: 'From USD 19', image: dealSmartwatchImg },
+  { id: 'prod-028', name: 'Cameras', price: 'From USD 89', image: categoryCamerasImg },
+  { id: 'prod-012', name: 'Smart watches', price: 'From USD 19', image: dealSmartwatchImg },
 ];
 
 export const homeOutdoorCategories = [
-  { id: 'prod-007', name: 'sofa chair', price: 'From USD 10', image: sofaChairImg },
-  { id: 'prod-007', name: 'Table lamp', price: 'From USD 19', image: tableLampImg },
-  { id: 'prod-002', name: 'Air mattress', price: 'From USD 39', image: airMattressImg },
-  { id: 'prod-002', name: 'Dragon tree', price: 'From USD 100', image: dragonTreeImg },
-  { id: 'prod-001', name: 'Electric kettle', price: 'From USD 19', image: electricKettleImg },
-  { id: 'prod-001', name: 'Kitchen mixer', price: 'From USD 19', image: kitchenMixerImg },
-  { id: 'prod-001', name: 'Coffee maker', price: 'From USD 19', image: coffeeMakerImg },
-  { id: 'prod-001', name: 'Blender', price: 'From USD 49', image: blenderImg },
+  { id: 'prod-016', name: 'sofa chair', price: 'From USD 10', image: sofaChairImg },
+  { id: 'prod-017', name: 'Table lamp', price: 'From USD 19', image: tableLampImg },
+  { id: 'prod-018', name: 'Air mattress', price: 'From USD 39', image: airMattressImg },
+  { id: 'prod-019', name: 'Dragon tree', price: 'From USD 100', image: dragonTreeImg },
+  { id: 'prod-020', name: 'Electric kettle', price: 'From USD 19', image: electricKettleImg },
+  { id: 'prod-021', name: 'Kitchen mixer', price: 'From USD 19', image: kitchenMixerImg },
+  { id: 'prod-022', name: 'Coffee maker', price: 'From USD 19', image: coffeeMakerImg },
+  { id: 'prod-023', name: 'Blender', price: 'From USD 49', image: blenderImg },
 ];
 
 export const dealItems = [
   { id: 'prod-004', name: 'Smart watches', discount: '-25%', image: dealSmartwatchImg },
-  { id: 'prod-001', name: 'Laptops', discount: '-15%', image: categoryLaptopImg },
-  { id: 'prod-006', name: 'GoPro cameras', discount: '-40%', image: categoryCamerasImg },
-  { id: 'prod-005', name: 'Headphones', discount: '-25%', image: categoryGamingImg },
-  { id: 'prod-006', name: 'Canon cameras', discount: '-25%', image: dealCanonImg },
+  { id: 'prod-013', name: 'Laptops', discount: '-15%', image: categoryLaptopImg },
+  { id: 'prod-014', name: 'GoPro cameras', discount: '-40%', image: categoryCamerasImg },
+  { id: 'prod-005', name: 'Headphones', discount: '-25%', image: productHeadsetImg },
+  { id: 'prod-015', name: 'Canon cameras', discount: '-25%', image: dealCanonImg },
 ];
 
 export const services = [

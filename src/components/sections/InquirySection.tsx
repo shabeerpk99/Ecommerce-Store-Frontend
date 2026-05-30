@@ -33,10 +33,12 @@ export function InquirySection() {
                   <form className="mt-5 space-y-4" onSubmit={(e) => e.preventDefault()}>
                     <input
                       type="text"
+                      name="item"
                       placeholder="What item you need?"
                       className="h-14 w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 text-base text-gray-900 outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20"
                     />
                     <textarea
+                      name="details"
                       placeholder="Type more details"
                       rows={5}
                       className="w-full resize-none rounded-2xl border border-gray-200 bg-gray-50 px-4 py-4 text-base text-gray-900 outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20"
@@ -44,12 +46,16 @@ export function InquirySection() {
                     <div className="flex items-center gap-3">
                       <input
                         type="text"
+                        name="quantity"
                         placeholder="Quantity"
                         className="h-14 flex-1 rounded-2xl border border-gray-200 bg-white px-4 text-base text-gray-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20"
                       />
                       <div className="relative w-[120px]">
-                        <select className="h-14 w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 pr-10 text-base text-gray-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 cursor-pointer">
-                          <option>Pcs</option>
+                        <select
+                          name="unit"
+                          className="h-14 w-full appearance-none rounded-2xl border border-gray-200 bg-white px-4 pr-10 text-base text-gray-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/20 cursor-pointer"
+                        >
+                          <option value="pcs">Pcs</option>
                           <option value="set">Set</option>
                           <option value="unit">Unit</option>
                           <option value="pack">Pack</option>

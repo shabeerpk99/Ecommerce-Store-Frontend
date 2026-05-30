@@ -1,7 +1,7 @@
 import { CartIcon, ChevronDownIcon, MenuIcon } from './icons';
 import { Container } from './Container';
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../context/useCart';
 import { navbarLinks, sidebarCategories } from '../data/homeData';
 import flagDe from '../assets/images/flags/de.png';
 import flagPk from '../assets/images/flags/pk.png';

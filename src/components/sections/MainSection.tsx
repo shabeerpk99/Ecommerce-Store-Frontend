@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import bannerImg from '../../assets/images/backgrounds/banner.png';
 import { sidebarCategories } from '../../data/homeData';
 import { Container } from '../Container';
 
 export function MainSection() {
+  const navigate = useNavigate();
+
   return (
     <section className="pt-5">
       <Container>
@@ -13,6 +16,7 @@ export function MainSection() {
                 <li key={cat}>
                   <button
                     type="button"
+                    onClick={() => navigate(`/category?cat=${encodeURIComponent(cat)}`)}
                     className={`w-full rounded px-3 py-2 text-left text-lg ${
                       cat === 'Automobiles'
                         ? 'bg-primary-light font-medium text-dark'
