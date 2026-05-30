@@ -22,10 +22,10 @@ export default function CartPage() {
   const handleApplyCoupon = () => {
     if (couponCode.trim().toUpperCase() === 'SAVE10') {
       setDiscount(10);
-      alert('Coupon applied: $10 off');
+      // In production, replace with toast notification
     } else {
       setDiscount(0);
-      alert('Coupon not recognized. Try SAVE10.');
+      // In production, show error toast
     }
   };
 

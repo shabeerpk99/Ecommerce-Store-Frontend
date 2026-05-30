@@ -28,9 +28,13 @@ export default function CheckoutPage() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    alert('Order placed successfully!');
+    // Form validation
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim()) {
+      return;
+    }
+    // Order processing (in production, call API here)
     clearCart();
-    navigate('/');
+    navigate('/?order=success');
   };
 
   if (cart.length === 0) {
