@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
 import { Container } from './Container';
 import { ChevronDownIcon } from './icons';
@@ -94,13 +95,48 @@ export function Footer() {
             <div key={col.title}>
               <h3 className="text-xl font-semibold text-dark">{col.title}</h3>
               <ul className="mt-2 space-y-1">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-base leading-6 tracking-tight text-gray-500 hover:text-primary">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const path =
+                    link === 'About Us'
+                      ? '/about'
+                      : link === 'Find store'
+                      ? '/find-store'
+                      : link === 'Categories'
+                      ? '/category'
+                      : link === 'Blogs'
+                      ? '/blogs'
+                      : link === 'Help Center'
+                      ? '/help-center'
+                      : link === 'Money Refund'
+                      ? '/money-refund'
+                      : link === 'Shipping'
+                      ? '/shipping'
+                      : link === 'Contact us'
+                      ? '/contact'
+                      : link === 'Login'
+                      ? '/login'
+                      : link === 'Register'
+                      ? '/register'
+                      : link === 'Settings'
+                      ? '/settings'
+                      : link === 'My Orders'
+                      ? '/orders'
+                      : '#';
+
+                  return (
+                    <li key={link}>
+                      {path === '#' ? (
+                        <a href="#" className="text-base leading-6 tracking-tight text-gray-500 hover:text-primary">
+                          {link}
+                        </a>
+                      ) : (
+                        <Link to={path} className="text-base leading-6 tracking-tight text-gray-500 hover:text-primary">
+                          {link}
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
