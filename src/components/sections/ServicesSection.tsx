@@ -9,7 +9,7 @@ export function ServicesSection() {
         <h2 className="mb-5 text-2xl font-semibold tracking-tight text-dark">
           Our extra services
         </h2>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {services.map((service) => (
             <article
               key={service.title}

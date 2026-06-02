@@ -16,7 +16,7 @@ import {
 
 export function HomePage() {
   return (
-    <div className="min-h-screen min-w-[1440px] bg-gray-100">
+    <div className="min-h-screen bg-gray-100">
       <main>
         <MainSection />
         <DealsSection />

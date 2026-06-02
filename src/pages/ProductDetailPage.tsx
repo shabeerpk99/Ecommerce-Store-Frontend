@@ -85,14 +85,14 @@ export default function ProductDetailPage() {
             </div>
           </div>
           <div className="grid gap-8">
-            <div className="grid grid-cols-[1.6fr_0.9fr] gap-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.6fr_0.9fr]">
               <div className="bg-white rounded-3xl p-8 shadow-sm">
-              <div className="grid grid-cols-[1.2fr_0.8fr] gap-8">
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.2fr_0.8fr]">
                 <div className="space-y-6">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-[440px] object-cover rounded-3xl"
+                    className="w-full h-[280px] sm:h-[380px] md:h-[440px] object-cover rounded-3xl"
                   />
                   <div className="grid grid-cols-4 gap-3">
                     {[...Array(4)].map((_, index) => (

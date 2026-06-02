@@ -217,8 +217,8 @@ export default function CategoryPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex gap-6">
-          <aside className="w-[280px] space-y-6">
+        <div className="flex flex-col gap-6 lg:flex-row">
+          <aside className="w-full lg:w-[280px] space-y-6">
             <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm">
               <div className="text-sm font-semibold text-gray-900 mb-4">Category</div>
               <div className="space-y-2">
@@ -257,7 +257,7 @@ export default function CategoryPage() {
 
           {/* Main Content Area */}
           <div className="flex-1">
-            <div className="mb-6 grid gap-4 lg:grid-cols-4">
+            <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {electronicsCategories.slice(0, 4).map((category) => (
                 <div key={category.name} className="overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
                   <div className="flex items-center gap-4 p-4">
@@ -319,7 +319,7 @@ export default function CategoryPage() {
               </div>
 
               {/* Filter Options */}
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap gap-3">
                 <label className="flex items-center gap-2 cursor-pointer text-sm">
                   <input
                     type="checkbox"
@@ -350,7 +350,7 @@ export default function CategoryPage() {
                 id="products-grid"
                 className={
                   viewMode === 'grid'
-                    ? 'grid grid-cols-3 gap-4 mb-8'
+                    ? 'grid grid-cols-1 gap-4 mb-8 sm:grid-cols-2 lg:grid-cols-3'
                     : 'space-y-4 mb-8'
                 }
               >

@@ -1,4 +1,6 @@
-import { CartIcon, ChevronDownIcon, MenuIcon } from './icons';
+import { useState, type Dispatch, type SetStateAction } from 'react';
+import { CartIcon, ChevronDownIcon, MessageIcon, OrdersIcon, ProfileIcon } from './icons';
+import { Logo } from './Logo';
 import { Container } from './Container';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/useCart';
@@ -19,20 +21,43 @@ const shipOptions = [
   { label: 'Australia', flag: flagAu },
 ];
 const helpOptions = ['Help Center', 'Order tracking', 'Returns', 'Contact Us'];
+const drawerActions = [
+  { label: 'Profile', Icon: ProfileIcon },
+  { label: 'Message', Icon: MessageIcon },
+  { label: 'Orders', Icon: OrdersIcon },
+];
 
-export function Navbar() {
+type NavbarProps = {
+  menuOpen: boolean;
+  setMenuOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+export function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
   const navigate = useNavigate();
   const { cart } = useCart();
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const [mobileCategoryOpen, setMobileCategoryOpen] = useState(true);
+  const [mobileHelpOpen, setMobileHelpOpen] = useState(false);
+  const [searchText, setSearchText] = useState('');
+
+  const mobileNavbarLinks = navbarLinks.filter(
+    (link) => !['Hot offers', 'Gift boxes', 'Projects', 'Menu item'].includes(link),
+  );
+
+  const handleSearch = () => {
+    setMenuOpen(false);
+    if (searchText.trim()) {
+      navigate(`/category?cat=${encodeURIComponent(searchText.trim())}`);
+    } else {
+      navigate('/category');
+    }
+  };
 
   return (
     <nav className="bg-white">
-      <Container className="flex h-14 items-center justify-between">
-        <div className="flex items-center gap-6">
-          <button type="button" className="text-dark" aria-label="Menu">
-            <MenuIcon />
-          </button>
-          {navbarLinks.map((link) => {
+      <Container className="hidden md:flex md:flex-row md:h-14 md:items-center md:justify-between gap-4 py-4">
+        <div className="hidden md:flex items-center gap-6">
+            {navbarLinks.map((link) => {
             if (link === 'All category') {
               return (
                 <div key={link} className="relative group">
@@ -96,7 +121,7 @@ export function Navbar() {
           })}
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="hidden md:flex flex-wrap items-center gap-4 justify-end">
           <div className="relative group">
             <button
               type="button"
@@ -156,6 +181,137 @@ export function Navbar() {
           </button>
         </div>
       </Container>
+
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 flex">
+          <button
+            type="button"
+            className="absolute inset-0 bg-black/40"
+            aria-label="Close menu"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div className="relative ml-auto flex h-full w-[80vw] max-w-sm flex-col overflow-y-auto bg-white p-6 shadow-2xl">
+            <div className="flex items-center justify-between mb-6">
+              <Logo className="h-8 w-auto" />
+              <button
+                type="button"
+                className="text-dark text-2xl font-bold"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              <div className="rounded-2xl border border-gray-200 bg-slate-50 p-4">
+                <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-2">
+                  <input
+                    type="text"
+                    value={searchText}
+                    onChange={(event) => setSearchText(event.target.value)}
+                    placeholder="Search"
+                    className="w-full border-0 bg-transparent text-sm text-gray-700 outline-none placeholder:text-gray-400"
+                  />
+                  <button
+                    type="button"
+                    onClick={handleSearch}
+                    className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white"
+                  >
+                    Search
+                  </button>
+                </div>
+                <div className="mt-4 grid grid-cols-3 gap-3">
+                  {drawerActions.map(({ label, Icon }) => (
+                    <button
+                      key={label}
+                      type="button"
+                      className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-white px-4 py-4 text-center text-sm font-medium text-gray-700 shadow-sm transition hover:bg-slate-50"
+                    >
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 text-gray-700">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span>{label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {mobileNavbarLinks.map((link) => {
+                if (link === 'All category') {
+                  return (
+                    <div key={link} className="rounded-2xl border border-gray-200 bg-slate-50 p-4">
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between text-left text-base font-medium text-dark"
+                        onClick={() => setMobileCategoryOpen((open) => !open)}
+                      >
+                        {link}
+                        <ChevronDownIcon className="w-4 h-4 text-gray-500" />
+                      </button>
+                      {mobileCategoryOpen && (
+                        <div className="mt-4 space-y-2">
+                          {categoryOptions.map((option) => (
+                            <button
+                              key={option}
+                              type="button"
+                              onClick={() => {
+                                setMenuOpen(false);
+                                navigate(`/category?cat=${encodeURIComponent(option)}`);
+                              }}
+                              className="w-full rounded-xl bg-white px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                            >
+                              {option}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                if (link === 'Help') {
+                  return (
+                    <div key={link} className="rounded-2xl border border-gray-200 bg-slate-50 p-4">
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between text-left text-base font-medium text-dark"
+                        onClick={() => setMobileHelpOpen((open) => !open)}
+                      >
+                        {link}
+                        <ChevronDownIcon className="w-4 h-4 text-gray-500" />
+                      </button>
+                      {mobileHelpOpen && (
+                        <div className="mt-4 space-y-2">
+                          {helpOptions.map((option) => (
+                            <button
+                              key={option}
+                              type="button"
+                              className="w-full rounded-xl bg-white px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
+                            >
+                              {option}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
+                  <button
+                    key={link}
+                    type="button"
+                    className="w-full rounded-2xl border border-gray-200 bg-slate-50 px-4 py-4 text-left text-base font-medium text-dark hover:bg-slate-100"
+                  >
+                    {link}
+                  </button>
+                );
+              })}
+            </div>
+
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

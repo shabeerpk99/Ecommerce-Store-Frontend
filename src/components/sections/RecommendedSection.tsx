@@ -24,7 +24,7 @@ export function RecommendedSection() {
         <h2 className="mb-5 text-2xl font-semibold tracking-tight text-dark">
           Recommended items
         </h2>
-        <div className="grid grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {recommendedProducts.map((product) => (
             <Link
               key={product.id}
@@ -36,7 +36,7 @@ export function RecommendedSection() {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="h-[180px] w-[180px] object-contain group-hover:scale-110 transition-transform"
+                    className="max-h-[180px] max-w-full object-contain group-hover:scale-110 transition-transform"
                   />
                 </div>
                 <div className="px-4 pb-4 pt-3 flex-1 flex flex-col">

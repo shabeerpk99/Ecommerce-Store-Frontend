@@ -13,8 +13,8 @@ export function DealsSection() {
   return (
     <section className="pt-[30px]">
       <Container>
-        <div className="flex rounded-md border border-gray-300 bg-white">
-          <div className="w-[350px] shrink-0 border-r border-gray-200 p-5">
+        <div className="flex flex-col gap-4 rounded-md border border-gray-300 bg-white lg:flex-row">
+          <div className="w-full lg:w-[350px] shrink-0 border-r border-gray-200 p-5 lg:border-r lg:border-gray-200">
             <h2 className="text-3xl font-semibold tracking-tight text-dark">Deals and offers</h2>
             <p className="mt-1 text-2xl text-gray-500">Hygiene equipments</p>
             <div className="mt-4 flex text-2xl gap-1">
@@ -30,7 +30,7 @@ export function DealsSection() {
             </div>
           </div>
 
-          <div className="grid flex-1 grid-cols-5">
+          <div className="grid flex-1 grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-5">
             {dealItems.map((item, index) => (
               <Link
                 key={item.id + index}

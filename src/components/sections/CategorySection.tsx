@@ -41,9 +41,9 @@ export function CategorySection({
     <section className="pt-5">
       <Container>
         <div className="overflow-hidden rounded-md border border-gray-200 bg-white">
-          <div className="flex">
+          <div className="flex flex-col lg:flex-row">
             <div
-              className="relative w-[350px] shrink-0 overflow-hidden"
+              className="relative w-full lg:w-[350px] shrink-0 overflow-hidden"
               style={{ backgroundColor: bannerBg }}
             >
               <img
@@ -63,7 +63,7 @@ export function CategorySection({
                 </button>
               </div>
             </div>
-            <div className="grid flex-1 grid-cols-4 divide-x divide-y divide-gray-200">
+            <div className="grid flex-1 grid-cols-1 gap-3 divide-gray-200 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-y lg:divide-gray-200">
               {items.map((item) => (
                 <CategoryCard key={item.id + item.name} {...item} />
               ))}

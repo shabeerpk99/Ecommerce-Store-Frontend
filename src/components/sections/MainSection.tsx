@@ -9,8 +9,8 @@ export function MainSection() {
   return (
     <section className="pt-5">
       <Container>
-        <div className="flex gap-4 rounded-md border border-gray-300 bg-white p-5">
-          <aside className="w-[250px] shrink-0">
+        <div className="flex flex-col gap-5 rounded-md border border-gray-300 bg-white p-5 lg:flex-row">
+          <aside className="hidden w-full max-w-[250px] shrink-0 md:block">
             <ul className="space-y-0">
               {sidebarCategories.map((cat) => (
                 <li key={cat}>
@@ -30,7 +30,7 @@ export function MainSection() {
             </ul>
           </aside>
 
-          <div className="relative h-[360px] flex-1 overflow-hidden rounded-md bg-primary">
+          <div className="relative min-h-[320px] h-[360px] flex-1 overflow-hidden rounded-md bg-primary">
             <img
               src={bannerImg}
               alt="Electronic items banner"
@@ -48,7 +48,7 @@ export function MainSection() {
             </div>
           </div>
 
-          <aside className="flex w-[280px] shrink-0 flex-col gap-3">
+          <aside className="w-full max-w-[280px] shrink-0 flex flex-col gap-3">
             <div className="rounded-md bg-[#E3F0FF] px-4 py-4">
               <div className="mb-3 flex items-center gap-3">
                 <div className="h-11 w-11 overflow-hidden rounded-full bg-gray-300">
