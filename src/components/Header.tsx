@@ -14,10 +14,10 @@ import { useCart } from '../context/useCart';
 
 const categoryOptions = sidebarCategories;
 const actions = [
-  { label: 'Profile', Icon: ProfileIcon },
-  { label: 'Message', Icon: MessageIcon },
-  { label: 'Orders', Icon: OrdersIcon },
-  { label: 'My cart', Icon: CartIcon },
+  { label: 'Profile', Icon: ProfileIcon, path: '/settings' },
+  { label: 'Message', Icon: MessageIcon, path: '/contact' },
+  { label: 'Orders', Icon: OrdersIcon, path: '/orders' },
+  { label: 'My cart', Icon: CartIcon, path: '/cart' },
 ];
 
 type HeaderProps = {
@@ -118,14 +118,14 @@ export function Header({ onOpenMenu }: HeaderProps) {
           </div>
 
           <div className="flex shrink-0 gap-7">
-            {actions.map(({ label, Icon }) => {
+            {actions.map(({ label, Icon, path }) => {
               const isCart = label === 'My cart';
               return (
                 <button
                   key={label}
                   type="button"
                   className="relative flex flex-col items-center gap-1 text-[11px] font-medium text-gray-600 hover:text-gray-900"
-                  onClick={() => isCart && navigate('/cart')}
+                  onClick={() => navigate(path)}
                 >
                   <Icon className="w-7 h-7 text-gray-600" />
                   {isCart && cartCount > 0 && (

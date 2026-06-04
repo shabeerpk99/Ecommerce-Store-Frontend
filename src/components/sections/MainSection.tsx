@@ -61,12 +61,14 @@ export function MainSection() {
               <div className="flex gap-2">
                 <button
                   type="button"
+                  onClick={() => navigate('/login')}
                   className="flex-1 rounded-md border border-gray-300 bg-white py-2 text-sm font-medium text-primary"
                 >
                   Log in
                 </button>
                 <button
                   type="button"
+                  onClick={() => navigate('/register')}
                   className="flex-1 rounded-md bg-primary-gradient py-2 text-sm font-medium text-white"
                 >
                   Join now

@@ -22,9 +22,9 @@ const shipOptions = [
 ];
 const helpOptions = ['Help Center', 'Order tracking', 'Returns', 'Contact Us'];
 const drawerActions = [
-  { label: 'Profile', Icon: ProfileIcon },
-  { label: 'Message', Icon: MessageIcon },
-  { label: 'Orders', Icon: OrdersIcon },
+  { label: 'Profile', Icon: ProfileIcon, path: '/settings' },
+  { label: 'Message', Icon: MessageIcon, path: '/contact' },
+  { label: 'Orders', Icon: OrdersIcon, path: '/orders' },
 ];
 
 type NavbarProps = {
@@ -40,9 +40,43 @@ export function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
   const [mobileHelpOpen, setMobileHelpOpen] = useState(false);
   const [searchText, setSearchText] = useState('');
 
-  const mobileNavbarLinks = navbarLinks.filter(
+    const mobileNavbarLinks = navbarLinks.filter(
     (link) => !['Hot offers', 'Gift boxes', 'Projects', 'Menu item'].includes(link),
   );
+
+  const getNavbarLinkPath = (link: string) => {
+    switch (link) {
+      case 'All category':
+        return '/category';
+      case 'Hot offers':
+        return `/category?cat=${encodeURIComponent('Hot offers')}`;
+      case 'Gift boxes':
+        return `/category?cat=${encodeURIComponent('Gift boxes')}`;
+      case 'Projects':
+        return `/category?cat=${encodeURIComponent('Projects')}`;
+      case 'Menu item':
+        return `/category?cat=${encodeURIComponent('Menu item')}`;
+      case 'Help':
+        return '/help-center';
+      default:
+        return '/category';
+    }
+  };
+
+  const getHelpOptionPath = (option: string) => {
+    switch (option) {
+      case 'Help Center':
+        return '/help-center';
+      case 'Order tracking':
+        return '/orders';
+      case 'Returns':
+        return '/money-refund';
+      case 'Contact Us':
+        return '/contact';
+      default:
+        return '/help-center';
+    }
+  };
 
   const handleSearch = () => {
     setMenuOpen(false);
@@ -99,6 +133,7 @@ export function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
                       <button
                         key={option}
                         type="button"
+                        onClick={() => navigate(getHelpOptionPath(option))}
                         className="w-full rounded-lg px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                       >
                         {option}
@@ -113,6 +148,7 @@ export function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
               <button
                 key={link}
                 type="button"
+                onClick={() => navigate(getNavbarLinkPath(link))}
                 className="flex items-center gap-1 text-base font-medium text-dark"
               >
                 {link}
@@ -222,10 +258,14 @@ export function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
                   </button>
                 </div>
                 <div className="mt-4 grid grid-cols-3 gap-3">
-                  {drawerActions.map(({ label, Icon }) => (
+                  {drawerActions.map(({ label, Icon, path }) => (
                     <button
                       key={label}
                       type="button"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        navigate(path);
+                      }}
                       className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-white px-4 py-4 text-center text-sm font-medium text-gray-700 shadow-sm transition hover:bg-slate-50"
                     >
                       <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-100 text-gray-700">
@@ -286,6 +326,10 @@ export function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
                             <button
                               key={option}
                               type="button"
+                              onClick={() => {
+                                setMenuOpen(false);
+                                navigate(getHelpOptionPath(option));
+                              }}
                               className="w-full rounded-xl bg-white px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
                             >
                               {option}
@@ -301,6 +345,10 @@ export function Navbar({ menuOpen, setMenuOpen }: NavbarProps) {
                   <button
                     key={link}
                     type="button"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate(getNavbarLinkPath(link));
+                    }}
                     className="w-full rounded-2xl border border-gray-200 bg-slate-50 px-4 py-4 text-left text-base font-medium text-dark hover:bg-slate-100"
                   >
                     {link}
